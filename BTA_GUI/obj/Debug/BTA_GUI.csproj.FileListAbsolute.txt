@@ -1,0 +1,10 @@
+E:\Programming\C#\BTA_GUI\BTA_GUI\bin\Debug\BTA_GUI.exe.config
+E:\Programming\C#\BTA_GUI\BTA_GUI\bin\Debug\BTA_GUI.exe
+E:\Programming\C#\BTA_GUI\BTA_GUI\bin\Debug\BTA_GUI.pdb
+E:\Programming\C#\BTA_GUI\BTA_GUI\obj\Debug\BTA_GUI.csproj.AssemblyReference.cache
+E:\Programming\C#\BTA_GUI\BTA_GUI\obj\Debug\BTA_GUI.Form1.resources
+E:\Programming\C#\BTA_GUI\BTA_GUI\obj\Debug\BTA_GUI.Properties.Resources.resources
+E:\Programming\C#\BTA_GUI\BTA_GUI\obj\Debug\BTA_GUI.csproj.GenerateResource.cache
+E:\Programming\C#\BTA_GUI\BTA_GUI\obj\Debug\BTA_GUI.csproj.CoreCompileInputs.cache
+E:\Programming\C#\BTA_GUI\BTA_GUI\obj\Debug\BTA_GUI.exe
+E:\Programming\C#\BTA_GUI\BTA_GUI\obj\Debug\BTA_GUI.pdb
