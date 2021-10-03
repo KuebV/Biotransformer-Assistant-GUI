@@ -14,5 +14,5 @@ Biotransformer Assistant GUI requires almost little to no setup, other than the 
 Biotransformer Assistant GUI is directly based on [Biotransformer Assistant](https://github.com/KuebV/Biotransformer-Assistant), therefore it's very easy to use if you have used Biotranformer Assistant before
 
 ### Wiki
-If you seem to be stuck, please visit the Wiki
+If you seem to be stuck, please visit the [Wiki](https://github.com/KuebV/Biotransformer-Assistant-GUI/wiki)
 
