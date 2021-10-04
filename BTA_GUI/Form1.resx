@@ -120,13 +120,4 @@
   <data name="label3.Text" xml:space="preserve">
     <value>Biotransformer Asssistant's prime function is to easily parse raw compounds from a spreadsheet, into compounds that can be used to be put into PubChem that can finally be converted into functioning commands for Biotransformer</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="DialogPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjDAUFKxjN/XlrAAAAT0lEQVR4Xu3BAQ0AAADC
-        oPdPbQ43IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AADgVA3heAAB0xlO2wAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

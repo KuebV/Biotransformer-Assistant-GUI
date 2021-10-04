@@ -65,8 +65,8 @@ namespace BTA_GUI
             HandleButtonPress(SkippedCompoundsButton);
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start("https://github.com/KuebV/Biotransformer-Assistant");
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start("https://github.com/KuebV/Biotransformer-Assistant/releases");
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start("https://github.com/KuebV/Biotransformer-Assistant-GUI");
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start("https://github.com/KuebV/Biotransformer-Assistant-GUI/releases");
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start("https://pubchem.ncbi.nlm.nih.gov/idexchange/idexchange.cgi");
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start("https://bitbucket.org/djoumbou/biotransformerjar/src/master/");
 
@@ -163,7 +163,7 @@ namespace BTA_GUI
 
         private void BiotransformerInputCopyButton_Click(object sender, EventArgs e) => Clipboard.SetText(BiotransformerInput.Text);
 
-        private void HelpSkippedCompoundsButton_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start("https://github.com/KuebV/BTA_GUI");
+        private void HelpSkippedCompoundsButton_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start("https://github.com/KuebV/Biotransformer-Assistant-GUI/wiki");
 
         private void SkippedCompoundsSetToDefaultButton_Click(object sender, EventArgs e)
         {
