@@ -2,6 +2,7 @@
  
 ![image](./Images/Screenshot_8.png)
 
+![Windows](https://img.shields.io/badge/OS-Windows-blue)
 # Requirements
 Unlike [Biotransformer Assistant](https://github.com/KuebV/Biotransformer-Assistant), this program requires .NET Framework 4.8
 
