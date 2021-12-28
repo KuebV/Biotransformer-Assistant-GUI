@@ -3,17 +3,28 @@
 ![image](Screenshot_8.png)
 
 ![Windows](https://img.shields.io/badge/OS-Windows-blue)
-# Requirements
-Unlike [Biotransformer Assistant](https://github.com/KuebV/Biotransformer-Assistant), this program requires .NET Framework 4.8
+# Biotransformer Assistant 3.0
+This is the third major overhaul of Biotransformer Assistant.
 
-You can download .NET Framework 4.8 [Here](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-web-installer)
+## Changes
+- Biotransformer Assistant runs off of the Game Engine Unity, for its compatibility with MacOS & Linux operating systems and performance
+- Biotransformer Input is no longer in the form of a text box, rather it's just a button to copy it to your clipboard
+- Skipped Compounds are now more easily viewable
+- Darker theme, to make it better looking and more polished
+- Less resource intensive (This was an issue for less powerful hardware when parsing compounds from PubChem)
+- More user friendly
+- Buttons now highlight when you hover over them:
+  - Buttons that highlight red usually mean that pressing them will revert all textboxes / fields on that page
+  - Buttons that highlight blue usually mean they process data
+- Better SMILES Idenfification
+- You are able to input LipidMapsID's, KeggID, and HMDB ID's directly into the skipped compounds fields.
 
-## Setting up & Starting
-Biotransformer Assistant GUI requires almost little to no setup, other than the .NET Framework 4.8
+## Ongoing Bugs
+- Visual bug with the SMILES Spreadsheet Key
+- You have to restart Biotransformer Assistant if you wish to input a new set compounds into the Biotransformer Panel
 
-## Using Biotransformer Assistant GUI
-Biotransformer Assistant GUI is directly based on [Biotransformer Assistant](https://github.com/KuebV/Biotransformer-Assistant), therefore it's very easy to use if you have used Biotranformer Assistant before
+## MacOS Installation
+As of 12/27/21, the MacOS Installation is being worked on, it should be released upon next update of 3.2 or 3.3
 
-### Wiki
-If you seem to be stuck, please visit the [Wiki](https://github.com/KuebV/Biotransformer-Assistant-GUI/wiki)
-
+## Windows Installation
+Rather than a ZIP file, Biotransformer Assistant comes with a Installation Executable, run the installation, and it will appear in the windows menu
