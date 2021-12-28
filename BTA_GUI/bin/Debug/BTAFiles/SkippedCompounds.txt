@@ -1,3 +1,0 @@
-java -jar "biotransformer-1.1.5 (1).jar" -k pred -b allHuman -ismi "smiles1" -ocsv list1.cmpnd1.csv -s 1
-java -jar "biotransformer-1.1.5 (1).jar" -k pred -b allHuman -ismi "smiles_something" -ocsv list1.cmpnd5.csv -s 1
-
