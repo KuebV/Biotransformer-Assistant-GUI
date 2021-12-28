@@ -1,6 +1,6 @@
 # Biotransformer Assistant GUI
  
-![image](./Images/Screenshot_8.png)
+![image](Screenshot_8.png)
 
 ![Windows](https://img.shields.io/badge/OS-Windows-blue)
 # Requirements
