@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.IO;
 
 public class Biotransformer : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Biotransformer : MonoBehaviour
     public TMP_Dropdown FileType;
     public TMP_InputField ListName;
     public TMP_InputField BiotransformerFile;
+
+    public InputField PubChemOutput;
 
     public Button SkippedCompoundButton;
 
@@ -57,25 +60,59 @@ public class Biotransformer : MonoBehaviour
             MetabolismType = Metabolites.options[Metabolites.value].text
         };
 
+        string mainDirectory = Directory.GetCurrentDirectory();
+        string biotransformerInputFile = Path.Combine(mainDirectory, "BiotransformerInput.txt");
+        if (File.Exists(biotransformerInputFile))
+            File.Delete(biotransformerInputFile);
+
         string[] data = PubChemInput.text.Split('\n');
         SkippedCompoundButton.gameObject.SetActive(true);
 
+        // Alert: Biotransformer is grabbing the PubChem Data & making sure everything matches
+        BiotransformerStatus.text = "Status: <color=#509ED8> <size=30>\nLoading Master List </size> </color>";
+
+        // If PubChemOutput is empty, then we know to load the most recent one
+        string[] PubChemData = new string[] { };
+        if (PubChemOutput.text.Length < 3)
+            PubChemData = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "PubChem.txt"));
+        else
+            PubChemData = PubChemOutput.text.Split('\n');
+
+        string[] masterlistCompoundArray = RemoveWhitespacedPubChem(PubChemData);
+        PubChemMasterList = masterlistCompoundArray.ToList();
+
+        List<string> listData = new List<string>();
+        List<string> duplicateChecker = new List<string>();
+        foreach (string d in data){
+            string compoundName = d.Split('\t')[0];
+            if (!duplicateChecker.Contains(compoundName))
+            {
+                listData.Add(d);
+                duplicateChecker.Add(compoundName);
+                Debug.Log("Added: " + compoundName);
+            }
+        }
+
+        Debug.Log("Data : " + data.Length + "\tList Data: " + listData.Count);
+
+
         BiotransformerStatus.text = "Status: <color=#509ED8> Parsing </color>";
 
-        for (int i = 0; i < data.Length; i++)
-            StartCoroutine(FindSMILES(data[i], i));
+        for (int i = 0; i < listData.Count; i++)
+            StartCoroutine(FindSMILES(listData[i], i));
 
         skippedCompounds = SkippedCompoundPanel.GetComponent<SkippedCompounds>();
         skippedCompounds.InitalizeCompoundData(CompoundData);
         skippedCompounds.PopulateList();
 
         BiotransformerStatus.text = "Status: <color=#006E62> Completed </color>";
-
     }
 
     public List<CompoundData> CompoundData = new List<CompoundData>();
     public List<string> CompoundNames = new List<string>();
     private BiotransformerInput Arguments;
+    public List<string> PubChemMasterList = new List<string>();
+    public List<string> AllowedCompounds = new List<string>();
 
     public void CopyToClipboard() => GUIUtility.systemCopyBuffer = BiotransformerData;
     public void AssistanceDocument() => Application.OpenURL("https://docs.google.com/document/d/1FbvyxIwNhrWRuiSscL4cNdbIBZxMrf3fKLy6LvbpqRQ/edit?usp=sharing");
@@ -89,10 +126,29 @@ public class Biotransformer : MonoBehaviour
         return bio;
     }
 
+    public string[] RemoveWhitespacedPubChem(string[] UnparsedInput)
+    {
+        List<string> output = new List<string>();
+        foreach (string line in UnparsedInput)
+        {
+            string compoundName = line;
+            char LastCharacter = compoundName.ElementAt(compoundName.Length - 1);
+            if (char.IsWhiteSpace(LastCharacter)) {
+                compoundName = compoundName.Remove(compoundName.Length - 1);
+            }
+            output.Add(compoundName);
+        }
+
+        return output.ToArray();
+    }
+
     public IEnumerator FindSMILES(string compound, int position)
     {
         position++;
         string endingElement = compound.Split('\t')[1];
+
+        string biotransformerFileInput = Path.Combine(Directory.GetCurrentDirectory(), "BiotransformerInput.txt");
+        StreamWriter sw = new StreamWriter(biotransformerFileInput, append: true);
         if (compound.Contains("\t") && endingElement.Length > 1)
         {
             compound = compound.Replace("\t", " ");
@@ -101,7 +157,6 @@ public class Biotransformer : MonoBehaviour
             SMILES = SMILES.Remove(SMILES.Length - 1);
 
             string CompoundName = compound.Replace(SMILES, "");
-
             if (SMILES.Length > 3 && !CompoundNames.Contains(CompoundName))
             {
                 CompoundData compoundInfo = new CompoundData
@@ -114,7 +169,9 @@ public class Biotransformer : MonoBehaviour
                 CompoundData.Add(compoundInfo);
                 CompoundNames.Add(CompoundName);
 
-                BiotransformerData += ReturnBiotransformerInput(position, SMILES) + "\n";
+                string biotransformerinput = ReturnBiotransformerInput(position, SMILES);
+                BiotransformerData += biotransformerinput + "\n";
+                sw.WriteLine(biotransformerinput);
                 skippedCompounds.SpreadsheetKey.text += SMILES + "\n";
             }
             else if (CompoundNames.Contains(CompoundName))
@@ -144,6 +201,8 @@ public class Biotransformer : MonoBehaviour
             skippedCompounds.SpreadsheetKey.text += "\n";
         }
 
+        // Oh no, horribly inefficent code
+        sw.Close();
         yield return new WaitForEndOfFrame();
     }
 

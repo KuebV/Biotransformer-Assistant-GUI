@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,12 +14,20 @@ public class PubChem : MonoBehaviour
 
     public void ParseData()
     {
+        string pubcheminput = Path.Combine(Directory.GetCurrentDirectory(), "PubChem.txt");
+        if (File.Exists(pubcheminput))
+            File.Delete(pubcheminput);
         outputField.text = "";
         string[] data = inputField.text.Split('\n');
         foreach (string str in data)
             outputField.text += $"{ParseCompounds(str)}\n";
+
+        StreamWriter sw = new StreamWriter(pubcheminput);
+        sw.WriteLine(outputField.text.Replace("\n", ""));
+        sw.Close();
     }
-    public void ClearData() {
+    public void ClearData() 
+    {
         inputField.text = "";
         outputField.text = "";
     }
