@@ -20,8 +20,8 @@ This is the third major overhaul of Biotransformer Assistant.
 - You are able to input LipidMapsID's, KeggID, and HMDB ID's directly into the skipped compounds fields.
 
 ## Ongoing Bugs
-- Visual bug with the SMILES Spreadsheet Key
 - You have to restart Biotransformer Assistant if you wish to input a new set compounds into the Biotransformer Panel
+    - [UNSURE IF THIS STILL OCCURS]
 
 ## MacOS Installation
 As of 12/27/21, the MacOS Installation is being worked on, it should be released upon next update of 3.2 or 3.3
