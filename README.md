@@ -8,6 +8,7 @@ This is the third major overhaul of Biotransformer Assistant.
 
 # Development & Forking
 This project does not include the entire codebase for the Application, only the scripts due to their importance. 
+However, this may change to include all components and source code from the project
 
 ## Changes
 - Biotransformer Assistant runs off of the Game Engine Unity, for its compatibility with MacOS & Linux operating systems and performance
@@ -31,3 +32,7 @@ As of 12/27/21, the MacOS Installation is being worked on, it should be released
 
 ## Windows Installation
 Rather than a ZIP file, Biotransformer Assistant comes with a Installation Executable, run the installation, and it will appear in the windows menu
+
+## Contact
+If you have questions, concerns, or anything. Email bobwthomp@gmail.com
+Thanks!
